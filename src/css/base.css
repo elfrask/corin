@@ -1,0 +1,82 @@
+
+@font-face {
+    font-family: "font";
+    src: url("/src/font/font.ttf");
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    font-family: "font";
+}
+
+body {
+    width: 100%;
+    background-color: #333;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+}
+
+.medio {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.box-login {
+    max-width: 460px;
+    width: 100%;
+    padding: 20px;
+    height: max-content;
+}
+
+.sumit {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 24px;
+
+}
+
+.camp-input {
+    width: calc(100% - 20px);
+    font-size: 24px;
+    padding: 10px;
+    background-color: transparent;
+    margin: 10px;
+}
+
+.fill-h {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 500px) {
+    /* Portrait */
+    .land {display: none;}
+
+
+}
+@media screen and (min-width: 500px) {
+    /* Landscape */
+    .port {display: none;}
+
+    
+}
