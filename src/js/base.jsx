@@ -43,6 +43,8 @@ let genlink = (e) => {
 }
 
 
+let _not_tokens = ",|!\"'/\\-.;:()[]{}¡¿?~€¬$&%=+*@#ªº^¨Çç`<>".split("")
+
 
 let RegExpresions = {
     email: (
@@ -57,4 +59,32 @@ let RegExpresions = {
 
 function mensaje(t, tipo) {
     alert (t)
+}
+
+function testing() {
+    send("/test").then(x=>console.log(x));
+    send("/islogin").then(x=>console.log(x));
+}
+
+
+class Img extends React.Component { 
+    // style, className, img, size, (x, y)
+    // title, alt, click
+    render() {
+        return (
+            <div
+                className={"img " + (this.props.className||"")}
+                style={asi({
+                    backgroundImage:`url('${this.props.img}')`,
+                    width:this.props.size||this.props.x||"",
+                    height:this.props.size||this.props.y||"",
+                }, this.props.style)}
+                onClick={genlink(this.props.click)}
+                title={this.props.title||""}
+                alt={this.props.alt||""}
+            >
+                {this.props.children}
+            </div>
+        )
+    }
 }

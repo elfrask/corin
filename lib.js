@@ -39,8 +39,8 @@ function open(p) {
         template:(t) => me.read().replace("{template}", t),
     }
 
-    if (!fs.existsSync(p)) {
-        fs.writeFileSync(p, "")
+    if (!fs.existsSync(me.path)) {
+        fs.writeFileSync(me.path, "")
     }
 
     return me
@@ -93,6 +93,7 @@ let system = {
     },
     set_contact_data:(user, contact, data) => {
         let pa = paths.contact_data(user, contact);
+        console.log("pa", pa)
         open(pa).json.write(data)
     },
     get_contact_data:(user, contact) => {
@@ -104,7 +105,7 @@ let system = {
 
         if (data.exist) {
             let data2 = open(pa).json.read();
-
+            data.data = data2;
         }
 
         return data
