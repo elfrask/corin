@@ -217,6 +217,21 @@ class Contact extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div
+                    className="sumit"
+                    onClick={() => {
+                        send("/remove_contact", {contact:this.state.contact}).then(x => {
+                            if (!x.error) {
+                                this.props.target.setState({
+                                    state: 0,
+                                    arg: {}
+                                })
+                            } else mensaje("no se pudo borrar el contacto...")
+                        })
+                    }}
+                >
+                    Eliminar contacto
+                </div>
 
                 <div className="list_contact_box">
                     { add_row("Asunto", "Les debes", "Te deben", "#111") }

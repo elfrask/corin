@@ -304,6 +304,26 @@ function Api() {
         res.json(out)
         
     })
+
+    app.post("/remove_contact", (req, res) => {
+
+        let contact = req.body.contact;
+        let user = req.session.user;
+
+        let out = {
+            error: true
+        };
+
+        let p = paths.contact_data(user, contact);
+
+        if (fs.existsSync(p)) {
+            fs.unlinkSync(p)
+            out.error = false;
+        }
+
+        res.json(out)
+
+    });
     
 }
 
